@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satisfied Cleaning by Python Automation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Satisfied Cleaning by Python Automation</h1>
+        <button class="btn" onclick="cleanFiles()">Clean Temp and Prefetch Folders</button>
+        <button class="btn" onclick="emptyRecycleBin()">Empty Recycle Bin</button>
+        <button class="btn" onclick="cleanAll()">CLEAN ALL</button>
+    </div>
+
+    <script>
+        function cleanFiles() {
+            fetch('/clean_files')
+                .then(response => {
+                    if (response.ok) {
+                        alert('Temp and Prefetch folders cleaned successfully!');
+                    } else {
+                        alert('Error cleaning folders.');
+                    }
+                });
+        }
+
+        function emptyRecycleBin() {
+            fetch('/empty_recycle_bin')
+                .then(response => {
+                    if (response.ok) {
+                        alert('Recycle Bin emptied successfully!');
+                    } else {
+                        alert('Error emptying Recycle Bin.');
+                    }
+                });
+        }
+
+        function cleanAll() {
+            fetch('/clean_all')
+                .then(response => {
+                    if (response.ok) {
+                        alert('All cleaning tasks completed successfully!');
+                    } else {
+                        alert('Error during the cleaning process.');
+                    }
+                });
+        }
+    </script>
+</body>
+</html>
